@@ -1,0 +1,6 @@
+@(elements: helper.FieldElements, text: String)
+<div class="form-group input-group if(@elements.hasErrors) {error}">
+	<span class="input-group-addon">@text</span>
+	@elements.input
+	<span class="errors">@elements.errors.mkString(", ")</span>
+</div>

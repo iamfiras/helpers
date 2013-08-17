@@ -1,0 +1,17 @@
+/*
+ * We can insert the following code in any view file to generate a form using custom input-group fields.
+ */
+
+/* In the header of the view */
+@(signin: Form[forms.Signin]) /* Insert here your real form definition */
+@import helper._
+@import views.bootstrap._
+
+/* Inside the body */
+@helper.form(action = routes.Auth.submit()) {
+	@inputText(signin("email"), 'class -> "form-control", 'placeholder -> "Email")(envelopeiconinputgroup, implicitly[Lang])
+	@inputText(signin("username"), 'class -> "form-control", 'placeholder -> "Username")(usericoninputgroup, implicitly[Lang])
+	@inputPassword(signin("password1"), 'class -> "form-control", 'placeholder -> "Password")(lockiconinputgroup, implicitly[Lang])
+	@inputPassword(signin("password2"), 'class -> "form-control", 'placeholder -> "Password (again)")(lockiconinputgroup, implicitly[Lang])
+	<button class="btn btn-default" type="submit">Sign Up &raquo;</button>
+}
