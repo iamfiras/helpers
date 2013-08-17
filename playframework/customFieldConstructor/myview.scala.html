@@ -1,0 +1,8 @@
+@import helper._
+@implicitField = @{ FieldConstructor(myinput.render) }
+
+@helper.form(action = routes.Auth.submit()) {
+	@inputText(signin("username"))
+	@inputPassword(signin("password"))
+	<button type="submit">Action</button>
+}
