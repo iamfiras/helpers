@@ -1,0 +1,15 @@
+/*
+ * We can insert the following code in any view file to generate a form using semantic-ui fields.
+ */
+
+/* In the header of the view */
+@(signin: Form[forms.Signin]) /* Insert here your real form definition */
+@import helper._
+@import views.html.semanticuiformhelper.helper_
+
+/* Inside the body where you will create your form */
+@form(action = routes.auth.submit()) {
+	@inputText(signin("email"), '_label -> "E-mail", '_id -> "email", 'placeholder -> "Enter your email address")(emailinput, implicitly[Lang])
+	@inputPassword(signin("password"), '_label -> "Password", '_id -> "password", 'placeholder -> "Enter your password")(passwordinput, implicitly[Lang])
+	<button type="submit">Sign in</button>
+}
